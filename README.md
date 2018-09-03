@@ -1,5 +1,5 @@
 <div align="center">
-  <span align="center"> <img width="130" height="90" class="center" src="https://github.com/drom98/Pignus/blob/master/data/images/com.github.drom98.pignus.png" alt="Icon"></span>
+  <span align="center"> <img width="200" height="" class="center" src="https://github.com/drom98/Pignus/blob/master/data/images/com.github.drom98.pignus.png" alt="Icon"></span>
   <h1 align="center">Pignus</h1>
   <h3 align="center">elementary Password Manager</h3>
 </div>
