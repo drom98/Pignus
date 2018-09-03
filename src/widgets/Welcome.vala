@@ -17,24 +17,16 @@
 
 using Pignus.Configs;
 
-public class Pignus.Widgets.Headerbar : Gtk.HeaderBar {
+public class Pignus.Widgets.Welcome : Granite.Widgets.Welcome {
 
-    public Gtk.Button new_file;
-
-    public Headerbar () {
+    public Welcome () {
         Object (
-            title: Constants.PROGRAME_NAME,
-            show_close_button: true,
-            has_subtitle: false
+            title: _("Welcome to Pignus"),
+            subtitle: _("Add an archive to begin.")
         );
     }
 
     construct {
-        new_file = new Gtk.Button.from_icon_name ("document-new-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-        new_file.tooltip_text = _("New archive");
-
-        pack_start (new_file);
-
-        show_all ();
+        append ("document-new", _("Add Archive"), _("Create a new archive."));
     }
 }

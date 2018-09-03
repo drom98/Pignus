@@ -39,8 +39,8 @@ namespace Pignus.Controllers {
             this.app_view = new AppView ();
 
             this.window.add (this.app_view);
-            this.window.set_default_size (800, 640);
-            this.window.set_size_request (800, 640);
+            this.window.set_default_size (1200, 800);
+            this.window.set_size_request (1200, 800);
             this.application.add_window (window);
 
             

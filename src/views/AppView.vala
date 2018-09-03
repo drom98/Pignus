@@ -19,7 +19,6 @@ using Pignus.Configs;
 using Pignus.Widgets;
 
 namespace Pignus.Views {
-
     /**
      * The {@code AppView} class.
      *
@@ -30,8 +29,13 @@ namespace Pignus.Views {
         /**
          * Constructs a new {@code AppView} object.
          */
+
+        public Pignus.Widgets.Welcome welcome;
+
         public AppView () {
             // UI goes here
+            welcome = new Pignus.Widgets.Welcome ();
+            add(welcome);
         }
     }
 }
