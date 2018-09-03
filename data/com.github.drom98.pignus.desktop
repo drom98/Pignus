@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Pignus
+Comment=elementary Password Manager
+Icon=com.github.drom98.pignus
+Exec=com.github.drom98.pignus
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;
+Keywords=app;vala;

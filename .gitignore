@@ -1,0 +1,7 @@
+build/*
+debian/build/*
+debian/com.github.drom98.pignus.debhelper.log
+debian/com.github.drom98.pignus.substvars
+debian/com.github.drom98.pignus/
+debian/debhelper-build-stamp
+debian/files
