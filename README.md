@@ -6,11 +6,13 @@
 
 <br/>
 
+<!-->
 <p align="center">
     <a href="https://appcenter.elementary.io/com.github.drom98.pignus">
         <img src="https://appcenter.elementary.io/badge.svg">
     </a>
 </p>
+<-->
 
 <p align="center">
   <a href="https://github.com/drom98/Pignus/blob/master/LICENSE">
@@ -21,10 +23,12 @@
   </a>
 </p>
 
+<!-->
 <p align="center">
     <img  src="https://github.com/drom98/Pignus/blob/master/data/images/screenshot.png" alt="Screenshot"> <br>
   <a href="https://github.com/drom98/Pignus/issues/new"> Report a problem! </a>
 </p>
+
 
 ## Installation
 
@@ -84,6 +88,7 @@ To help, access the links below:
 
 - [Translate](https://github.com/drom98/Pignus/wiki/Translate)
 
+<-->
 
 ### License
 

@@ -30,7 +30,7 @@ public class Pignus.Widgets.Headerbar : Gtk.HeaderBar {
     }
 
     construct {
-        new_file = new Gtk.Button.from_icon_name ("document-new-symbolic");
+        new_file = new Gtk.Button.from_icon_name ("document-new-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         new_file.tooltip_text = _("New archive");
     }
 }
