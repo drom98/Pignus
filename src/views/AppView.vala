@@ -33,7 +33,7 @@ namespace Pignus.Views {
         public Pignus.Widgets.Welcome welcome;
 
         public AppView () {
-            // UI goes here
+            // Welcome Widget
             welcome = new Pignus.Widgets.Welcome ();
             add(welcome);
         }

@@ -21,12 +21,13 @@ public class Pignus.Widgets.Welcome : Granite.Widgets.Welcome {
 
     public Welcome () {
         Object (
-            title: _("Welcome to Pignus"),
-            subtitle: _("Add an archive to begin.")
+            title: _("No archives found"),
+            subtitle: _("Create a new one to begin.")
         );
     }
 
     construct {
-        append ("document-new", _("Add Archive"), _("Create a new archive."));
+        append ("document-new", _("Add New Archive"), _("Create a new archive."));
+        append ("folder-open", _("Open existing Archive"), _("Open an existing archive from your files."));
     }
 }

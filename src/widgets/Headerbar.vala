@@ -30,10 +30,30 @@ public class Pignus.Widgets.Headerbar : Gtk.HeaderBar {
     }
 
     construct {
-        new_file = new Gtk.Button.from_icon_name ("document-new-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        //New File Icon
+        new_file = new Gtk.Button.from_icon_name ("document-new-symbolic", Gtk.IconSize.BUTTON);
         new_file.tooltip_text = _("New archive");
 
+        //Options Menu
+        var preferences_menuitem = new Gtk.ModelButton ();
+        preferences_menuitem.text = _("Preferences");
+
+        var menu_grid = new Gtk.Grid ();
+        menu_grid.margin_bottom = 3;
+        menu_grid.orientation = Gtk.Orientation.VERTICAL;
+        menu_grid.width_request = 200;
+        
+
+        var menu = new Gtk.Popover (null);
+        menu.add (menu_grid);
+
+        var app_menu = new Gtk.MenuButton ();
+        app_menu.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.BUTTON);
+        app_menu.tooltip_text = _("Menu");
+        app_menu.popover = menu;
+
         pack_start (new_file);
+        pack_end (app_menu);
 
         show_all ();
     }
