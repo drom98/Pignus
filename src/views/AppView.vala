@@ -34,6 +34,10 @@ namespace Pignus.Views {
 
         public AppView () {
             // Welcome Widget
+            build_welcome ();
+        }
+
+        private void build_welcome () {
             welcome = new Pignus.Widgets.Welcome ();
             add(welcome);
         }

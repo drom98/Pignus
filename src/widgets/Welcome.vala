@@ -19,9 +19,11 @@ using Pignus.Configs;
 
 public class Pignus.Widgets.Welcome : Granite.Widgets.Welcome {
 
+    public unowned Pignus.Window window { get; construct; }
+
     public Welcome () {
         Object (
-            title: _("No archives found"),
+            title: _("No Archives Found"),
             subtitle: _("Create a new one to begin.")
         );
     }
@@ -29,5 +31,64 @@ public class Pignus.Widgets.Welcome : Granite.Widgets.Welcome {
     construct {
         append ("document-new", _("Add New Archive"), _("Create a new archive."));
         append ("folder-open", _("Open existing Archive"), _("Open an existing archive from your files."));
+
+        activated.connect ( index => {
+            switch (index) {
+                case 0:
+                    //Code
+                break;
+                case 1:
+                    import_file ();
+                break;
+            }
+        });
+    }
+
+    private void import_file () {
+        var open_dialog = new Gtk.FileChooserDialog ("Select a file", 
+            window, Gtk.FileChooserAction.OPEN,
+            _("_Cancel"),
+            Gtk.ResponseType.CANCEL,
+            _("_Open"),
+            Gtk.ResponseType.ACCEPT);
+        
+        open_dialog.local_only = true;
+        open_dialog.set_modal (true);
+        open_dialog.response.connect (open_file);
+        open_dialog.show ();
+    }
+
+    private void open_file (Gtk.Dialog dialog, int response_id) {
+        var open_dialog = dialog as Gtk.FileChooserDialog;
+
+        switch (response_id) {
+            case Gtk.ResponseType.ACCEPT:
+                var file = open_dialog.get_file ();
+                uint8[] file_contents;
+
+                try {
+                    file.load_contents (null, out file_contents, null);
+                }
+                catch (GLib.Error err) {
+                    import_warning (err.message);
+                }
+            break;
+
+            case Gtk.ResponseType.CANCEL:
+            break;
+        }
+    }
+
+    private void import_warning (string message) {
+        var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to import atchive "), message, "dialog-error", Gtk.ButtonsType.NONE);
+        message_dialog.transient_for = window;
+        
+        var suggested_button = new Gtk.Button.with_label ("Close");
+        message_dialog.add_action_widget (suggested_button, Gtk.ResponseType.ACCEPT);
+
+        message_dialog.show_all ();
+        if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {}
+
+        message_dialog.destroy ();
     }
 }

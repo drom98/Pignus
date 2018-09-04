@@ -61,10 +61,10 @@ namespace Pignus {
         construct {
             set_hide_titlebar_when_maximized (false);
 
-            init_layout ();
+            build_headerbar ();
         }
 
-        private void init_layout () {
+        private void build_headerbar () {
             headerbar = new Pignus.Widgets.Headerbar ();
             set_titlebar (headerbar);
         }
