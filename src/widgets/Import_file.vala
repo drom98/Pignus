@@ -14,32 +14,3 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-using Pignus.Configs;
-using Pignus.Widgets;
-
-namespace Pignus.Views {
-    /**
-     * The {@code AppView} class.
-     *
-     * @since 1.0.0
-     */
-    public class AppView : Gtk.Box {
-
-        public Pignus.Widgets.Welcome welcome;
-        
-        /**
-         * Constructs a new {@code AppView} object.
-         */
-
-        public AppView () {
-            // Welcome Widget
-            build_welcome ();
-        }
-
-        private void build_welcome () {
-            welcome = new Pignus.Widgets.Welcome ();
-            add(welcome);
-        }
-    }
-}

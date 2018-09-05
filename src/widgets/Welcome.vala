@@ -24,7 +24,7 @@ public class Pignus.Widgets.Welcome : Granite.Widgets.Welcome {
     public Welcome () {
         Object (
             title: _("No Archives Found"),
-            subtitle: _("Create a new one to begin.")
+            subtitle: _("Create or open a new archive to begin.")
         );
     }
 
@@ -44,40 +44,9 @@ public class Pignus.Widgets.Welcome : Granite.Widgets.Welcome {
         });
     }
 
-    private void import_file () {
-        var open_dialog = new Gtk.FileChooserDialog ("Select a file", 
-            window, Gtk.FileChooserAction.OPEN,
-            _("_Cancel"),
-            Gtk.ResponseType.CANCEL,
-            _("_Open"),
-            Gtk.ResponseType.ACCEPT);
+    private void import_file (Gtk.Dialog parent_dialog, Gtk.TreeView tree_view, Gtk.TreeIter iter, Gtk.ListStore list_store, string[] formats) {
         
-        open_dialog.local_only = true;
-        open_dialog.set_modal (true);
-        open_dialog.response.connect (open_file);
-        open_dialog.show ();
-    }
-
-    private void open_file (Gtk.Dialog dialog, int response_id) {
-        var open_dialog = dialog as Gtk.FileChooserDialog;
-
-        switch (response_id) {
-            case Gtk.ResponseType.ACCEPT:
-                var file = open_dialog.get_file ();
-                uint8[] file_contents;
-
-                try {
-                    file.load_contents (null, out file_contents, null);
-                }
-                catch (GLib.Error err) {
-                    import_warning (err.message);
-                }
-            break;
-
-            case Gtk.ResponseType.CANCEL:
-            break;
-        }
-    }
+    }            
 
     private void import_warning (string message) {
         var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to import atchive "), message, "dialog-error", Gtk.ButtonsType.NONE);

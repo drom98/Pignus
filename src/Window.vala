@@ -31,6 +31,8 @@ namespace Pignus {
      */
     public class Window : Gtk.ApplicationWindow {
 
+        public Pignus.Widgets.Headerbar headerbar;
+
         /**
          * Constructs a new {@code Window} object.
          *
@@ -38,8 +40,6 @@ namespace Pignus {
          * @see style_provider
          * @see build
          */
-
-        public Pignus.Widgets.Headerbar headerbar;
 
         public Window (Gtk.Application app) {
             Object (
